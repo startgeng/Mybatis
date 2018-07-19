@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iss.mapper.EmpMapper">
+<select id="findEmpById" parameterType="String" resultType="emp">
+ select * from emp where id=#{id,jdbcType=VARCHAR}
+</select>
+<update id="updateEmp" parameterType="String">
+   update emp set name=#{name},age=#{age} where id=#{id,jdbcType=VARCHAR}
+</update>
+
+<insert id="InsertEmp" parameterType="emp">
+    insert into emp (id,name,age) values (#{id},#{name},#{age})
+</insert>
+
+<delete id="DeleteEmp" parameterType="emp">
+delete from emp where id=#{id}
+</delete>
+</mapper>
